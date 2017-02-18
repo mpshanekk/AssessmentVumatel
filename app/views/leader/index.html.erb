@@ -1,0 +1,14 @@
+<h1>Team Leaders</h1>
+ 
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+ 
+  <% @leader.each do |leader| %>
+    <tr>
+      <td><%= leader.name %></td>
+      <td><%= link_to 'View', leader_path(leader) %></td>
+    </tr>
+  <% end %>
+</table>

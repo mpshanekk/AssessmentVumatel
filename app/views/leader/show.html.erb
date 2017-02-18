@@ -1,0 +1,71 @@
+<p>
+  <strong>Name:</strong>
+  <%= @leader.name %>
+</p>
+
+<h2>Add Car:</h2>
+<%= form_for([@leader, @leader.cars.build]) do |f| %>
+  <p>
+    <%= f.label :member %><br>
+    <%= f.text_field :member %>
+  </p>
+  <p>
+    <%= f.label :licencenum %><br>
+    <%= f.text_field :licencenum %>
+  </p>
+    <p>
+    <%= f.label :licencefrom %><br>
+    <%#= f.text_field :licencefrom %>
+    <%= f.date_select(:licencefrom, :order => [:month, :day, :year]) %>
+  </p>
+    <p>
+    <%= f.label :licenceto %><br>
+    <%#= f.text_field :licenceto %>
+    <%= f.date_select(:licenceto, :order => [:month, :day, :year]) %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<h2>Cars</h2>
+<% @leader.cars.each do |car| %>
+  <p>
+    <strong>member:</strong>
+    <%= car.member %>
+  </p>
+ 
+  <p>
+    <strong>licencenum:</strong>
+    <%= car.licencenum %>
+  </p>
+  <p>
+    <strong>licencefrom:</strong>
+    <%= car.licencefrom %>
+  </p>
+ 
+  <p>
+    <strong>licenceto:</strong>
+    <%= car.licenceto %>
+  </p>
+  <p>
+  <strong>Days:</strong>
+    <%= num_days = (car.licencefrom.to_s.. car.licenceto.to_s).count%>
+    <% if (num_days >= 30) %>
+    <% expire = "Yes" %>
+    <% else %>
+    <% expire = "No" %>
+    <% end%>
+  </p>
+  <p>
+  <strong>Expired: <%= expire%></strong>
+  </p>
+  <p>
+    #######################
+  </p>
+  
+<% end %>
+
+ <p>
+  <%= link_to 'Leaders', leader_index_path%>
+  <p>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  member: MyString
+  licencenum: MyString
+  licenceto: 2017-02-18
+  licencefrom: 2017-02-18
+  leader: 
+
+two:
+  member: MyString
+  licencenum: MyString
+  licenceto: 2017-02-18
+  licencefrom: 2017-02-18
+  leader: 
